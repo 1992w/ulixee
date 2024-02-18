@@ -1,4 +1,4 @@
-FROM node:18-slim
+FROM node:18.19.1-slim
 
 ARG ADD_TO_INSTALL=true
 ARG VERSION=2.0.0-alpha.26
