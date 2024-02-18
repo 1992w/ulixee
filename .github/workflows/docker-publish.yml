@@ -1,0 +1,42 @@
+name: Docker
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Build latest docker release
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_URL: https://github.com/${{ github.repository }}
+      ADD_CHROME_VERSION: 120
+      IMAGE: 1992w/ulixee-cloud
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Image
+        shell: bash
+        working-directory: .
+        run: |
+          export BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          docker build \
+            --progress auto \
+            --cache-from ghcr.io/${IMAGE}:latest \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            --build-arg GITHUB_SHA=${GITHUB_SHA} \
+            --tag ghcr.io/${IMAGE}:v2.0.0-alpha.26 \
+            --tag ghcr.io/${IMAGE}:latest \
+            .
+
+      - name: Push Image to GHCR
+        run: docker push -a ghcr.io/${IMAGE}
