@@ -7,11 +7,11 @@ LABEL org.opencontainers.image.description="The open data platform. This image p
 LABEL org.opencontainers.image.licenses=MIT
 
 # fonts
-RUN gpg --keyserver keyserver.ubuntu.com --recv 0E98404D386FA1D9
-RUN gpg --keyserver keyserver.ubuntu.com --recv 6ED0E7B82643E131
-RUN gpg --keyserver keyserver.ubuntu.com --recv F8D2585B8783D481
-RUN gpg --keyserver keyserver.ubuntu.com --recv 54404762BBB6E853
-RUN gpg --keyserver keyserver.ubuntu.com --recv BDE6D2B9216EC7A8
+# RUN gpg --keyserver keyserver.ubuntu.com --recv 0E98404D386FA1D9
+# RUN gpg --keyserver keyserver.ubuntu.com --recv 6ED0E7B82643E131
+# RUN gpg --keyserver keyserver.ubuntu.com --recv F8D2585B8783D481
+# RUN gpg --keyserver keyserver.ubuntu.com --recv 54404762BBB6E853
+# RUN gpg --keyserver keyserver.ubuntu.com --recv BDE6D2B9216EC7A8
 
 # RUN echo "deb http://deb.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list \
 #    && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
