@@ -15,7 +15,8 @@ LABEL org.opencontainers.image.licenses=MIT
 
 # apt-get update \
 RUN echo "deb http://deb.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list \
- && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
+    && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
+    && apt-get update \
     && apt-get install -y \
         fonts-arphic-ukai \
         fonts-arphic-uming \
