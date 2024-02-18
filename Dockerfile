@@ -13,9 +13,9 @@ LABEL org.opencontainers.image.licenses=MIT
 # RUN gpg --keyserver keyserver.ubuntu.com --recv 54404762BBB6E853
 # RUN gpg --keyserver keyserver.ubuntu.com --recv BDE6D2B9216EC7A8
 
-# RUN echo "deb http://deb.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list \
-#    && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
-RUN  apt-get update \
+RUN echo "deb http://deb.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list \
+ && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
+ apt-get update \
     && apt-get install -y \
         fonts-arphic-ukai \
         fonts-arphic-uming \
