@@ -9,6 +9,7 @@ jobs:
   release:
     name: Build latest docker release
     runs-on: ubuntu-latest
+    permissions: write-all
     env:
       GITHUB_URL: https://github.com/${{ github.repository }}
       ADD_CHROME_VERSION: 120
