@@ -12,7 +12,7 @@ jobs:
     env:
       GITHUB_URL: https://github.com/${{ github.repository }}
       ADD_CHROME_VERSION: 120
-      IMAGE: w-ulixee-cloud
+      IMAGE: 1992w/ulixee-cloud
 
     steps:
       - uses: actions/checkout@v4
