@@ -35,7 +35,7 @@ jobs:
             --cache-from ghcr.io/${IMAGE}:latest \
             --build-arg BUILDKIT_INLINE_CACHE=1 \
             --build-arg GITHUB_SHA=${GITHUB_SHA} \
-            --tag ghcr.io/${IMAGE}:v2.0.0-alpha.26 \
+            --tag ghcr.io/${IMAGE}:v2.0.0-alpha.27 \
             --tag ghcr.io/${IMAGE}:latest \
             .
 
