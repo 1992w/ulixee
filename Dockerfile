@@ -60,17 +60,6 @@ RUN cd /app/ulixee && yarn init -yp \
     && yarn add @ulixee/chrome-118-0 \
     && yarn add @ulixee/chrome-117-0 \
     && yarn add @ulixee/chrome-116-0 \
-    && yarn add @ulixee/chrome-115-0 \
-    && yarn add @ulixee/chrome-114-0 \
-    && yarn add @ulixee/chrome-113-0 \
-    && yarn add @ulixee/chrome-112-0 \
-    && yarn add @ulixee/chrome-111-0 \
-    && yarn add @ulixee/chrome-110-0 \
-    && yarn add @ulixee/chrome-109-0 \
-    && yarn add @ulixee/chrome-108-0 \
-    && yarn add @ulixee/chrome-107-0 \
-    && yarn add @ulixee/chrome-106-0 \
-    && yarn add @ulixee/chrome-105-0 \
     && $(npx install-browser-deps) \
     && groupadd -r ulixee && useradd -r -g ulixee -G audio,video ulixee \
     && mkdir -p /home/ulixee/Downloads \
