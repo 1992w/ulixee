@@ -1,7 +1,7 @@
 FROM node:18.19.1-slim
 
 ARG ADD_TO_INSTALL=true
-ARG VERSION=2.0.0-alpha.29
+ARG VERSION=2.0.0-alpha.33
 LABEL org.opencontainers.image.source=https://github.com/ulixee/platform
 LABEL org.opencontainers.image.description="The open data platform. This image packages Ulixee Cloud, Hero and the last 2 Chrome versions."
 LABEL org.opencontainers.image.licenses=MIT
@@ -48,18 +48,19 @@ ENV BROWSERS_DIR /ulixee/browsers
 
 RUN cd /app/ulixee && yarn init -yp \
     && yarn add @ulixee/cloud@$VERSION \
+    && yarn add @ulixee/chrome-137-0 \
+    && yarn add @ulixee/chrome-136-0 \
+    && yarn add @ulixee/chrome-135-0 \
+    && yarn add @ulixee/chrome-134-0 \
+    && yarn add @ulixee/chrome-133-0 \
+    && yarn add @ulixee/chrome-132-0 \
+    && yarn add @ulixee/chrome-131-0 \
+    && yarn add @ulixee/chrome-130-0 \
+    && yarn add @ulixee/chrome-129-0 \
+    && yarn add @ulixee/chrome-128-0 \
     && yarn add @ulixee/chrome-127-0 \
     && yarn add @ulixee/chrome-126-0 \
     && yarn add @ulixee/chrome-125-0 \
-    && yarn add @ulixee/chrome-124-0 \
-    && yarn add @ulixee/chrome-123-0 \
-    && yarn add @ulixee/chrome-122-0 \
-    && yarn add @ulixee/chrome-121-0 \
-    && yarn add @ulixee/chrome-120-0 \
-    && yarn add @ulixee/chrome-119-0 \
-    && yarn add @ulixee/chrome-118-0 \
-    && yarn add @ulixee/chrome-117-0 \
-    && yarn add @ulixee/chrome-116-0 \
     && $(npx install-browser-deps) \
     && groupadd -r ulixee && useradd -r -g ulixee -G audio,video ulixee \
     && mkdir -p /home/ulixee/Downloads \
